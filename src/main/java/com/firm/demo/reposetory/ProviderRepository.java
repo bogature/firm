@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ProviderRepository extends JpaRepository<Provider, Integer> {
 
-    @Query("select c from Provider c where c.category = :categorys_id")
+    @Query("select c from Provider c where c.category.id = :categorys_id")
     List<Provider> getProvidersByCategoryAndType(@Param("categorys_id") int categorys_id);
 
 }
