@@ -178,6 +178,8 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Товар</th>
+                                            <th>Ціна</th>
+                                            <th>Постачальник</th>
                                             <th>Покупець</th>
                                             <th>Кількість товару</th>
                                             <th>Час замовлення</th>
@@ -187,6 +189,8 @@
                                         <tr ng-repeat="order in orders">
                                             <td>{{order.id}}</td>
                                             <td>{{order.product.name}}</td>
+                                            <td>${{order.product.price}}</td>
+                                            <td>{{order.product.provider.name}}</td>
                                             <td>{{order.customer.name}}</td>
                                             <td>{{order.amount}} шт.</td>
                                             <td>{{order.time}}</td>

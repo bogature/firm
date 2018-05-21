@@ -1,14 +1,12 @@
 package com.firm.demo.controller;
 
-import com.firm.demo.model.Center;
-import com.firm.demo.model.Country;
-import com.firm.demo.model.Customer;
-import com.firm.demo.model.Defect;
+import com.firm.demo.model.*;
 import com.firm.demo.service.center.CenterService;
 import com.firm.demo.service.defect.DefectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -44,5 +42,16 @@ public class DefectController {
     Defect get(@RequestParam("id") int id) {
         return defectService.getDefect(id);
     }
+
+    @RequestMapping("/defect/getCountDefectByDay")
+    public int getCountDefectByDay(@RequestParam("startTime") Date startTime, @RequestParam("finishTime") Date finishTime ){
+        return defectService.getCountDefectByDay(startTime, finishTime);
+    }
+
+    @RequestMapping("/defect/getDefectByDate")
+    public List<Defect> getDefectByDate(@RequestParam("startTime") Date startTime, @RequestParam("finishTime") Date finishTime ){
+        return defectService.getDefectByDate(startTime, finishTime);
+    }
+
 
 }

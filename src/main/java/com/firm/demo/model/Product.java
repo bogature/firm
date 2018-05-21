@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
+import java.sql.Date;
 
 @Entity
 @Table(name = "product")
@@ -41,12 +38,12 @@ public class Product {
     private Status status;
 
     @Column(name = "timer")
-    private LocalDate time;
+    private Date time;
 
     public Product() {
     }
 
-    public Product(String name, Country country, Float price, Center center, Provider provider, Type type, Status status, LocalDate time) {
+    public Product(String name, Country country, Float price, Center center, Provider provider, Type type, Status status, Date time) {
         this.name = name;
         this.country = country;
         this.price = price;
@@ -121,11 +118,11 @@ public class Product {
         this.status = status;
     }
 
-    public LocalDate getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 }

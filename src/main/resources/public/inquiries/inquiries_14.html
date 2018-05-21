@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="../assets/images/favicon_1.ico">
 
-    <title>Запрос #1</title>
+    <title>Запрос #14</title>
 
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="../assets/plugins/morris/morris.css">
@@ -33,7 +33,7 @@
 
 </head>
 
-<body ng-app="myinq_1">
+<body ng-app="myinq_14">
 
 <div id="wrapper">
     <div class="topbar">
@@ -130,28 +130,32 @@
 
     <div class="content-page">
         <div class="content">
-            <div class="container" ng-controller="inq_1 as ctrl">
+            <div class="container" ng-controller="inq_14 as ctrl">
 
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-box">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h3 ><b> Запит #1 Одержати перелік постачальників вказаної категорії, які постачають вказаний тип товару.</b></h3>
+                                    <h3>
+                                        <b>
+                                            Запит #14 Одержати перелік бракованих виробів, що надійшли протягом певного періоду.
+                                        </b>
+                                    </h3>
                                     <hr>
                                     <h3>Фільтр:</h3>
 
-                                    <div class="col-sm-12 col-md-6 col-lg-6">
-                                        <label>Категорія:</label>
-                                        <select class="form-control" id="Categorys"></select>
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <label>Дата:</label>
+                                        <input class="form-control" type="date" id="StartTime">
                                     </div>
 
-                                    <div class="col-sm-12 col-md-5 col-lg-5">
-                                        <label>Тип:</label>
-                                        <select class="form-control" id="Types"></select>
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <label>Дата:</label>
+                                        <input class="form-control" type="date" id="FinishTime">
                                     </div>
 
-                                    <div class="col-sm-12 col-md-1 col-lg-1">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
                                         <br>
                                         <button type="button" class="btn btn-success" ng-click="ctrl.update_request()">Пошук</button>
                                     </div>
@@ -165,13 +169,13 @@
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Постачальник</th>
+                                                <th>Товар</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr ng-repeat="provider in providers">
-                                                <td>{{provider.id}}</td>
-                                                <td>{{provider.name}}</td>
+                                            <tr ng-repeat="defect in defects">
+                                                <td>{{defect.id}}</td>
+                                                <td>{{defect.product.name}} [{{defect.product.id}}]</td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -195,7 +199,7 @@
 
     <script type="text/javascript" src="../assets/js/angular.min.js"></script>
     <!--<script type="text/javascript" src="../assets/js/main.js"></script>-->
-    <script type="text/javascript" src="../assets/js/site/inq_1.js"></script>
+    <script type="text/javascript" src="../assets/js/site/inq_14.js"></script>
 
     <!-- jQuery  -->
     <script src="../assets/js/jquery.min.js"></script>

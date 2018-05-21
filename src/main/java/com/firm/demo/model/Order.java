@@ -1,10 +1,11 @@
 package com.firm.demo.model;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "orders")
@@ -26,12 +27,12 @@ public class Order {
     private int amount;
 
     @Column(name = "timer")
-    private LocalDate time;
+    private Date time;
 
     public Order() {
     }
 
-    public Order(Product product, Customer customer, int amount, LocalDate time) {
+    public Order(Product product, Customer customer, int amount, Date time) {
         this.product = product;
         this.customer = customer;
         this.amount = amount;
@@ -70,11 +71,11 @@ public class Order {
         this.amount = amount;
     }
 
-    public LocalDate getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 }

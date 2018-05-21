@@ -8,7 +8,9 @@ import com.firm.demo.service.type.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -45,7 +47,18 @@ public class ProviderController {
     }
 
     @RequestMapping("/provider/getProvidersByCategoryAndType")
-    public List<Provider> getProvidersByCategoryAndType(@RequestParam("id") int id){
-        return providerService.getProvidersByCategoryAndType(id);
+    public List<Provider> getProvidersByCategoryAndType(@RequestParam("categorys_id") int id, @RequestParam("type_id") int type_id){
+        return providerService.getProvidersByCategoryAndType(id, type_id);
     }
+
+    @RequestMapping("/provider/getProvidersByTimerAndCount")
+    public List<Provider> getProvidersByTimerAndCount(@RequestParam("product_id") int product_id, @RequestParam("timerStart") Date timerStart, @RequestParam("amount") int amount, @RequestParam("timerFinish") Date timerFinish){
+        return providerService.getProvidersByTimerAndCount(product_id, timerStart, amount, timerFinish);
+    }
+
+    @RequestMapping("/provider/getProvidersByDefect")
+    public List<Provider> getProvidersByDefect(@RequestParam("product_id") int product_id){
+        return providerService.getProvidersByDefect(product_id);
+    }
+
 }

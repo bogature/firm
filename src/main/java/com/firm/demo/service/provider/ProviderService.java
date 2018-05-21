@@ -11,7 +11,9 @@ import com.firm.demo.service.provider.interfaces.IProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -46,8 +48,18 @@ public class ProviderService implements IProviderService {
     }
 
     @Override
-    public List<Provider> getProvidersByCategoryAndType(int categorys_id) {
-        return providerRepository.getProvidersByCategoryAndType(categorys_id);
+    public List<Provider> getProvidersByCategoryAndType(int categorys_id, int type_id) {
+        return providerRepository.getProvidersByCategoryAndType(categorys_id, type_id);
+    }
+
+    @Override
+    public List<Provider> getProvidersByTimerAndCount(int id, Date timer, int amount, Date timerFinish) {
+        return providerRepository.getProvidersByTimerAndCount(id, timer, amount, timerFinish);
+    }
+
+    @Override
+    public List<Provider> getProvidersByDefect(int id) {
+        return providerRepository.getProvidersByDefect(id);
     }
 
 }

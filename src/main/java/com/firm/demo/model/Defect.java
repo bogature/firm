@@ -3,8 +3,7 @@ package com.firm.demo.model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "defect")
@@ -20,13 +19,13 @@ public class Defect {
     private Product product;
 
     @Column(name = "time")
-    private LocalDate time;
+    private Date time;
 
     public Defect() {
     }
 
 
-    public Defect(Product product, LocalDate time) {
+    public Defect(Product product, Date time) {
         this.product = product;
         this.time = time;
     }
@@ -50,11 +49,11 @@ public class Defect {
         this.product = product;
     }
 
-    public LocalDate getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 }

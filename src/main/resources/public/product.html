@@ -191,11 +191,13 @@
                                             <th>ID</th>
                                             <th>Назва</th>
                                             <th>Постачальник</th>
+                                            <th>Категорія постачальника</th>
                                             <th>Ціна</th>
                                             <th>Тип</th>
                                             <th>Статус</th>
                                             <th>Осередок</th>
                                             <th>Країна</th>
+                                            <th>Дата доставки</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -203,11 +205,13 @@
                                             <td>{{product.id}}</td>
                                             <td>{{product.name}}</td>
                                             <td>{{product.provider.name}}</td>
+                                            <td>{{product.provider.category.name}}</td>
                                             <td>{{product.price}}</td>
                                             <td>{{product.type.name}}</td>
                                             <td>{{product.status.name}}</td>
                                             <td>{{product.center.name}}</td>
                                             <td>{{product.country.name}}</td>
+                                            <td>{{product.time}}</td>
                                             <td class="text-right">
                                                 <button data-toggle="collapse" data-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree" type="button" class="btn btn-primary" ng-click="ctrl.startUpdateProduct(product)"><i class="fa fa-refresh"></i></button>
                                                 <button type="button" class="btn btn-danger" ng-click="ctrl.delProduct(product.id)"><i class="fa fa-trash"></i></button>

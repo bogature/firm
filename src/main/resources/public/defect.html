@@ -171,6 +171,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Товар</th>
+                                            <th>Постачальник</th>
                                             <th>Час</th>
                                         </tr>
                                         </thead>
@@ -178,6 +179,7 @@
                                         <tr ng-repeat="defect in defects">
                                             <td>{{defect.id}}</td>
                                             <td>{{defect.product.name}}</td>
+                                            <td>{{defect.product.provider.name}}</td>
                                             <td>{{defect.time}}</td>
                                             <td class="text-right">
                                                 <button data-toggle="collapse" data-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree" type="button" class="btn btn-primary" ng-click="ctrl.startUpdateDefect(defect.id)"><i class="fa fa-refresh"></i></button>
