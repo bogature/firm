@@ -26,4 +26,12 @@ public interface IProductService {
 
     int getCountProductNoByStatus(int status);
 
+    List<Product> getProductByTypeAndProviderAndPrice(int type_id, int provider_id, float price);
+
+    List<Product> getProductByTypeAndStatus(int type_id, int status_id);
+
+    int getCountProductByTypeAndStatus(int status_id, int type_id);
+
+    List<Product> getProductByFamous();
+
 }

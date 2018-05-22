@@ -1,10 +1,6 @@
 package com.firm.demo.service.defect;
 
-import com.firm.demo.DAO.customer.CustomerDAOJDBCImpl;
-import com.firm.demo.DAO.defect.DefectDAOJDBCImpl;
-import com.firm.demo.model.Customer;
 import com.firm.demo.model.Defect;
-import com.firm.demo.model.Product;
 import com.firm.demo.reposetory.DefectRepository;
 import com.firm.demo.service.defect.interfaces.IDefectService;
 import org.springframework.beans.factory.annotation.Autowired;

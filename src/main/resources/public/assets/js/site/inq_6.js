@@ -3,25 +3,6 @@ var app = angular.module("myinq_6", []);
 
 app.controller("inq_6", function ($http, $scope){
 
-
-    var product_id = 1;
-    var date = '2017-01-01';
-    var amount = 3;
-
-    $scope.providers = [];
-    $http.get('/api/provider/getProvidersByTimerAndCount?product_id='+ product_id + "&timerStart="+ date + "&timerFinish="+ date + "&amount="+ amount).then(function (response){
-        $scope.providers = response.data;
-    });
-
-
-    //
-    // $scope.providers = [];
-    // $http.get('/api/provider/getProvidersByTimerAndCount?product_id='+ id + "&timer="+ date + "&amount="+ amount).then(function (response){
-    //     $scope.providers = response.data;
-    // });
-
-
-    //
     $http.get('/api/type').then(function (response){
         var types = response.data;
         var selector = document.getElementById("Type");
@@ -34,14 +15,14 @@ app.controller("inq_6", function ($http, $scope){
         }
     });
 
-    $http.get('/api/provider').then(function (response){
-        var provider = response.data;
-        var selector = document.getElementById("Provider");
+    $http.get('/api/status').then(function (response){
+        var status = response.data;
+        var selector = document.getElementById("Status");
         $(selector).empty();
-        for (var i = 0; i < provider.length; i++) {
+        for (var i = 0; i < status.length; i++) {
             var option = document.createElement("option");
-            option.text = provider[i].name;
-            option.value = provider[i].id;
+            option.text = status[i].name;
+            option.value = status[i].id;
             selector.add(option);
         }
     });
@@ -49,26 +30,22 @@ app.controller("inq_6", function ($http, $scope){
 
     this.update_request = function add() {
 
-        console.log("Start...");
+        var indexOfType = document.getElementById("Type").selectedIndex;
+        type_id = document.getElementById("Type").options[indexOfType].value;
 
-        var indexOfProduct = document.getElementById("Product").selectedIndex;
-        product_id = document.getElementById("Product").options[indexOfProduct].value;
+        var indexOfStatus = document.getElementById("Status").selectedIndex;
+        status_id = document.getElementById("Status").options[indexOfStatus].value;
 
-        var start_time = document.getElementById("StartTime").value;
-        var finish_time = document.getElementById("StartTime").value;
-
-        var amount = document.getElementById("Amount").value;
-
-        $scope.providers = [];
-        $http.get('/api/provider/getProvidersByTimerAndCount?product_id=' + product_id + "&timerStart=" + date + "&timerFinish=" + date + "&amount=" + amount).then(function (response){
+        $scope.products = [];
+        $http.get('/api/product/getProductByTypeAndStatus?type_id=' + type_id + "&status_id=" + status_id).then(function (response){
 
 
             document.getElementById("Rezultat").innerText = " ";
-            $scope.providers = response.data;
+            $scope.products = response.data;
 
-            console.log($scope.providers.length);
+            console.log($scope.products.length);
 
-            if ($scope.providers.length <= 0) {
+            if ($scope.products.length <= 0) {
                 document.getElementById("Rezultat").innerText = "Даної інформації в базі не знайдено";
             }
 

@@ -139,18 +139,23 @@
                                 <div class="col-lg-12">
                                     <h3>
                                         <b>
-                                            Запит #6 Одержати перелік конкретного виду деталей, які зберігаються на складі.
+                                            Запит #6 Одержати перелік деталей конкретного виду та статусу
                                         </b>
                                     </h3>
                                     <hr>
                                     <h3>Фільтр:</h3>
 
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <label>Виду:</label>
+                                        <label>Вид:</label>
                                         <select class="form-control" id="Type"></select>
                                         <br>
                                     </div>
 
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>Статус:</label>
+                                        <select class="form-control" id="Status"></select>
+                                        <br>
+                                    </div>
 
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <br>
@@ -166,13 +171,13 @@
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Постачальник</th>
+                                                <th>Товар</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr ng-repeat="provider in providers">
-                                                <td>{{provider.id}}</td>
-                                                <td>{{provider.name}}</td>
+                                            <tr ng-repeat="product in products">
+                                                <td>{{product.id}}</td>
+                                                <td>{{product.name}}</td>
                                             </tr>
                                             </tbody>
                                         </table>

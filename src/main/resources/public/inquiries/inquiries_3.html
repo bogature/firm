@@ -139,7 +139,7 @@
                                 <div class="col-lg-12">
                                     <h3>
                                         <b>
-                                            Запит #3 Одержати інформацію про товар вказавши конкретний вид деталей, постачальника, розцінки.
+                                            Запит #3 Одержати інформацію про товар вказавши конкретний вид деталей, постачальника, розцінки
                                         </b>
                                     </h3>
                                     <hr>
@@ -159,7 +159,7 @@
 
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <label>Ціна:</label>
-                                        <input class="form-control" type="text" id="Amount">
+                                        <input class="form-control" type="text" id="Price">
                                     </div>
 
                                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -176,13 +176,19 @@
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Постачальник</th>
+                                                <th>Товар</th>
+                                                <th>Ціна Товара</th>
+                                                <th>Тип</th>
+                                                <th>Країна</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr ng-repeat="provider in providers">
-                                                <td>{{provider.id}}</td>
-                                                <td>{{provider.name}}</td>
+                                            <tr ng-repeat="product in products">
+                                                <td>{{product.id}}</td>
+                                                <td>{{product.name}}</td>
+                                                <td>${{product.price}}</td>
+                                                <td>{{product.type.name}}</td>
+                                                <td>{{product.country.name}}</td>
                                             </tr>
                                             </tbody>
                                         </table>

@@ -1,13 +1,8 @@
 package com.firm.demo.service.status;
 
-import com.firm.demo.DAO.status.StatusDAOJDBCImpl;
-import com.firm.demo.DAO.type.TypeDAOJDBCImpl;
-import com.firm.demo.model.Product;
 import com.firm.demo.model.Status;
-import com.firm.demo.model.Type;
 import com.firm.demo.reposetory.StatusRepository;
 import com.firm.demo.service.status.interfaces.IStatusService;
-import com.firm.demo.service.type.interfaces.ITypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

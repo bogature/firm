@@ -146,8 +146,8 @@
                                     <h3>Фільтр:</h3>
 
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <label>Товар:</label>
-                                        <select class="form-control" id="Ptoduct"></select>
+                                        <label>Вид:</label>
+                                        <select class="form-control" id="Type"></select>
                                         <br>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-6">
@@ -174,13 +174,13 @@
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Постачальник</th>
+                                                <th>Покупець</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr ng-repeat="provider in providers">
-                                                <td>{{provider.id}}</td>
-                                                <td>{{provider.name}}</td>
+                                            <tr ng-repeat="customer in customers">
+                                                <td>{{customer.id}}</td>
+                                                <td>{{customer.name}}</td>
                                             </tr>
                                             </tbody>
                                         </table>

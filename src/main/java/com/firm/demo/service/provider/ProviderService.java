@@ -1,11 +1,6 @@
 package com.firm.demo.service.provider;
 
-import com.firm.demo.DAO.provider.ProviderDAOJDBCImpl;
-import com.firm.demo.DAO.type.TypeDAOJDBCImpl;
-import com.firm.demo.model.Product;
 import com.firm.demo.model.Provider;
-import com.firm.demo.model.Type;
-import com.firm.demo.reposetory.CountryRepository;
 import com.firm.demo.reposetory.ProviderRepository;
 import com.firm.demo.service.provider.interfaces.IProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 
 @Service

@@ -1,7 +1,5 @@
 package com.firm.demo.service.country;
 
-import com.firm.demo.DAO.country.CountryDAOJDBCImpl;
-import com.firm.demo.DAO.country.interfaces.ICountryDAO;
 import com.firm.demo.model.Country;
 import com.firm.demo.reposetory.CountryRepository;
 import com.firm.demo.service.country.interfaces.ICountryService;

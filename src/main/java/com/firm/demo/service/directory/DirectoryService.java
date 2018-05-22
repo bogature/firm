@@ -1,7 +1,5 @@
 package com.firm.demo.service.directory;
 
-import com.firm.demo.DAO.directory.DirectoryDAOJDBCImpl;
-import com.firm.demo.DAO.product.ProductDAOJDBCImpl;
 import com.firm.demo.model.Directory;
 import com.firm.demo.model.Product;
 import com.firm.demo.reposetory.DirectoryRepository;

@@ -1,11 +1,7 @@
 package com.firm.demo.service.type;
 
-import com.firm.demo.DAO.product.ProductDAOJDBCImpl;
-import com.firm.demo.DAO.type.TypeDAOJDBCImpl;
-import com.firm.demo.model.Product;
 import com.firm.demo.model.Type;
 import com.firm.demo.reposetory.TypeRepository;
-import com.firm.demo.service.product.interfaces.IProductService;
 import com.firm.demo.service.type.interfaces.ITypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

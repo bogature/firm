@@ -8,6 +8,7 @@ import com.firm.demo.model.Provider;
 import com.firm.demo.service.country.CountryService;
 import com.firm.demo.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -65,6 +66,26 @@ public class ProductController {
     @RequestMapping("/product/getCountProductNoByStatus")
     public int getCountProductNoByStatus(@RequestParam("status_id") int status ){
         return productService.getCountProductNoByStatus(status);
+    }
+
+    @RequestMapping("/product/getProductByTypeAndProviderAndPrice")
+    public List<Product> getProductByTypeAndProviderAndPrice(@RequestParam("type_id") int type_id , @RequestParam("provider_id") int provider_id, @RequestParam("price") float price ){
+        return productService.getProductByTypeAndProviderAndPrice(type_id, provider_id, price);
+    }
+
+    @RequestMapping("/product/getProductByTypeAndStatus")
+    public List<Product> getProductByTypeAndStatus(@RequestParam("type_id") int type_id , @RequestParam("status_id") int status_id){
+        return productService.getProductByTypeAndStatus(type_id, status_id);
+    }
+
+    @RequestMapping("/product/getCountProductByTypeAndStatus")
+    public int getCountProductByTypeAndStatus(@RequestParam("status_id") int status_id, @RequestParam("type_id") int type_id){
+        return productService.getCountProductByTypeAndStatus(status_id, type_id);
+    }
+
+    @RequestMapping("/product/getProductByFamous")
+    public List<Product> getProductByFamous(){
+        return productService.getProductByFamous();
     }
 
 

@@ -1,9 +1,6 @@
 package com.firm.demo.service.product;
 
-import com.firm.demo.DAO.country.CountryDAOJDBCImpl;
-import com.firm.demo.DAO.product.ProductDAOJDBCImpl;
 import com.firm.demo.model.Product;
-import com.firm.demo.model.Provider;
 import com.firm.demo.reposetory.ProductRepository;
 import com.firm.demo.service.product.interfaces.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +62,24 @@ public class ProductService implements IProductService{
         return productRepository.getCountProductNoByStatus(status);
     }
 
+    @Override
+    public List<Product> getProductByTypeAndProviderAndPrice(int type_id, int provider_id, float price) {
+        return productRepository.getProductByTypeAndProviderAndPrice(type_id, provider_id, price);
+    }
+
+    @Override
+    public List<Product> getProductByTypeAndStatus(int type_id, int status_id) {
+        return productRepository.getProductByTypeAndStatus(type_id, status_id);
+    }
+
+    @Override
+    public int getCountProductByTypeAndStatus(int status_id, int type_id) {
+        return productRepository.getCountProductByTypeAndStatus(status_id, type_id);
+    }
+
+    @Override
+    public List<Product> getProductByFamous() {
+        return productRepository.getProductByFamous();
+    }
 
 }

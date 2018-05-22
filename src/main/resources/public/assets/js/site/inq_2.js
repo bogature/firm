@@ -13,15 +13,6 @@ app.controller("inq_2", function ($http, $scope){
         $scope.providers = response.data;
     });
 
-
-    //
-    // $scope.providers = [];
-    // $http.get('/api/provider/getProvidersByTimerAndCount?product_id='+ id + "&timer="+ date + "&amount="+ amount).then(function (response){
-    //     $scope.providers = response.data;
-    // });
-
-
-    //
     $http.get('/api/product').then(function (response){
         var products = response.data;
         var selector = document.getElementById("Product");

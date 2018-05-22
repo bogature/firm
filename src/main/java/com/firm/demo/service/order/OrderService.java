@@ -1,9 +1,6 @@
 package com.firm.demo.service.order;
 
-import com.firm.demo.DAO.order.OrderDAOJDBCImpl;
-import com.firm.demo.DAO.product.ProductDAOJDBCImpl;
 import com.firm.demo.model.Order;
-import com.firm.demo.model.Product;
 import com.firm.demo.reposetory.OrderRepository;
 import com.firm.demo.service.order.interfaces.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;

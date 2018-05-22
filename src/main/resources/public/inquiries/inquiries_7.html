@@ -139,44 +139,37 @@
                                 <div class="col-lg-12">
                                     <h3>
                                         <b>
-                                            Запит #7 Одержати обсяг конкретного виду деталей, які зберігаються на складі
+                                            Запит #7 Одержати обсяг конкретного виду та статусу  деталей
                                         </b>
                                     </h3>
                                     <hr>
                                     <h3>Фільтр:</h3>
 
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <label>Виду:</label>
+                                        <label>Вид:</label>
                                         <select class="form-control" id="Type"></select>
                                         <br>
                                     </div>
 
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>Статус:</label>
+                                        <select class="form-control" id="Status"></select>
+                                        <br>
+                                    </div>
 
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <br>
                                         <button type="button" class="btn btn-success" ng-click="ctrl.update_request()">Пошук</button>
                                     </div>
 
                                     <br>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <hr>
-                                        <h3>Результат пошуку:</h3>
-
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Постачальник</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr ng-repeat="provider in providers">
-                                                <td>{{provider.id}}</td>
-                                                <td>{{provider.name}}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <div id="Rezultat"></div>
+                                        <div class="col-sm-3 col-md-3 col-lg-3">
+                                            <h3>Результат пошуку:</h3>
+                                        </div>
+                                        <div class="col-sm-1 col-md-1 col-lg-1">
+                                            <h3 id="Rezultat"></h3>
+                                        </div>
                                     </div>
 
                                 </div>
