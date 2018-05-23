@@ -6,6 +6,7 @@ import com.firm.demo.service.order.interfaces.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -39,5 +40,10 @@ public class OrderService implements IOrderService {
     @Override
     public List<Order> getAll() throws SQLException {
         return orderRepository.findAll();
+    }
+
+    @Override
+    public int getCountOrderByTypeAndDate(int status_id, Date start_time, Date finish_time) {
+        return orderRepository.getCountOrderByTypeAndDate(status_id, start_time, finish_time);
     }
 }

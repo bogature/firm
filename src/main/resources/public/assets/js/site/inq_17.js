@@ -3,45 +3,26 @@ var app = angular.module("myinq_17", []);
 
 app.controller("inq_17", function ($http, $scope){
 
-
-    var product_id = 1;
-    var date = '2017-01-01';
-    var amount = 3;
-
-    $scope.providers = [];
-    $http.get('/api/provider/getProvidersByTimerAndCount?product_id='+ product_id + "&timerStart="+ date + "&timerFinish="+ date + "&amount="+ amount).then(function (response){
-        $scope.providers = response.data;
-    });
-
-
-    //
-    // $scope.providers = [];
-    // $http.get('/api/provider/getProvidersByTimerAndCount?product_id='+ id + "&timer="+ date + "&amount="+ amount).then(function (response){
-    //     $scope.providers = response.data;
-    // });
-
-
-    //
-    $http.get('/api/type').then(function (response){
-        var types = response.data;
-        var selector = document.getElementById("Type");
+    $http.get('/api/country').then(function (response){
+        var countrys = response.data;
+        var selector = document.getElementById("Country");
         $(selector).empty();
-        for (var i = 0; i < types.length; i++) {
+        for (var i = 0; i < countrys.length; i++) {
             var option = document.createElement("option");
-            option.text = types[i].name;
-            option.value = types[i].id;
+            option.text = countrys[i].name;
+            option.value = countrys[i].id;
             selector.add(option);
         }
     });
 
-    $http.get('/api/provider').then(function (response){
-        var provider = response.data;
-        var selector = document.getElementById("Provider");
+    $http.get('/api/center').then(function (response){
+        var centers = response.data;
+        var selector = document.getElementById("Center");
         $(selector).empty();
-        for (var i = 0; i < provider.length; i++) {
+        for (var i = 0; i < centers.length; i++) {
             var option = document.createElement("option");
-            option.text = provider[i].name;
-            option.value = provider[i].id;
+            option.text = centers[i].name;
+            option.value = centers[i].id;
             selector.add(option);
         }
     });
@@ -51,16 +32,14 @@ app.controller("inq_17", function ($http, $scope){
 
         console.log("Start...");
 
-        var indexOfProduct = document.getElementById("Product").selectedIndex;
-        product_id = document.getElementById("Product").options[indexOfProduct].value;
+        var indexOfCountry = document.getElementById("Country").selectedIndex;
+        country_id = document.getElementById("Country").options[indexOfCountry].value;
 
-        var start_time = document.getElementById("StartTime").value;
-        var finish_time = document.getElementById("StartTime").value;
-
-        var amount = document.getElementById("Amount").value;
+        var indexOfCenter = document.getElementById("Center").selectedIndex;
+        center_id = document.getElementById("Center").options[indexOfCenter].value;
 
         $scope.providers = [];
-        $http.get('/api/provider/getProvidersByTimerAndCount?product_id=' + product_id + "&timerStart=" + date + "&timerFinish=" + date + "&amount=" + amount).then(function (response){
+        $http.get('/api/product/getProductByCountryAndCenter?country_id=' + country_id + "&center_id=" + center_id ).then(function (response){
 
 
             document.getElementById("Rezultat").innerText = " ";

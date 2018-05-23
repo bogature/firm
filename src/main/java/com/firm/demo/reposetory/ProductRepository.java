@@ -38,4 +38,11 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query("select ord.product from Order ord group by ord.product.id order by ( count (ord) ) desc ")
     List<Product> getProductByFamous();
 
+//    @Query("select ord.product from Order ord group by ord.product.id order by ( count (ord) ) desc ")
+    @Query("select prod from Product prod group by prod.id order by prod.price ")
+    List<Product> getProductByCheap();
+
+    @Query("select prod from Product prod where prod.country.id = :country and prod.center.id = :center")
+    List<Product> getProductByCountryAndCenter(@Param("country") int country,@Param("center") int center);
+
 }

@@ -38,7 +38,7 @@ app.controller("inq_2", function ($http, $scope){
         var amount = document.getElementById("Amount").value;
 
         $scope.providers = [];
-        $http.get('/api/provider/getProvidersByTimerAndCount?product_id=' + product_id + "&timerStart=" + date + "&timerFinish=" + date + "&amount=" + amount).then(function (response){
+        $http.get('/api/provider/getProvidersByTimerAndCount?product_id=' + product_id + "&timerStart=" + start_time + "&timerFinish=" + finish_time + "&amount=" + amount).then(function (response){
 
 
             document.getElementById("Rezultat").innerText = " ";

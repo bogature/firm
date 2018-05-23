@@ -82,4 +82,14 @@ public class ProductService implements IProductService{
         return productRepository.getProductByFamous();
     }
 
+    @Override
+    public List<Product> getProductByCheap() {
+        return productRepository.getProductByCheap();
+    }
+
+    @Override
+    public List<Product> getProductByCountryAndCenter(int country_id, int center_id) {
+        return productRepository.getProductByCountryAndCenter(country_id,center_id);
+    }
+
 }

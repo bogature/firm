@@ -61,4 +61,15 @@ public class ProviderController {
         return providerService.getProvidersByDefect(product_id);
     }
 
+    @RequestMapping("/provider/getCountProviderByProcent")
+    public float getCountProviderByProcent(@RequestParam("provider_id") int provider_id){
+        return providerService.getCountProviderByProcent(provider_id);
+    }
+
+    @RequestMapping("/provider/getCountProviderByPrice")
+    public float getCountProviderByPrice(@RequestParam("provider_id") int provider_id){
+        return providerService.getCountProviderByPrice(provider_id);
+    }
+
+
 }

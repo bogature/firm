@@ -39,32 +39,17 @@
     <div class="topbar">
         <div class="topbar-left">
             <div class="text-center">
-                <a href="../index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Ub<i class="md md-album"></i>ld</span></a>
+                <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span><i class="md md-album"></i>Firm</span></a>
             </div>
         </div>
 
         <div class="navbar navbar-default" role="navigation">
             <div class="container">
-                <div class="">
-                    <ul class="nav navbar-nav navbar-right pull-right">
-                        <li class="dropdown top-menu-item-xs">
-                            <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="../assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0)"><i class="ti-user m-r-10 text-custom"></i> Profile</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-settings m-r-10 text-custom"></i> Settings</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-lock m-r-10 text-custom"></i> Lock screen</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+
 
             </div>
         </div>
     </div>
-
-
     <div class="left side-menu">
         <div class="sidebar-inner slimscrollleft">
             <div id="sidebar-menu">
@@ -166,13 +151,15 @@
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Постачальник</th>
+                                                <th>Товар</th>
+                                                <th>Ціна товару</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr ng-repeat="provider in providers">
                                                 <td>{{provider.id}}</td>
                                                 <td>{{provider.name}}</td>
+                                                <td>{{provider.price}}</td>
                                             </tr>
                                             </tbody>
                                         </table>

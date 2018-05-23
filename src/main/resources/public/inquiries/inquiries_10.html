@@ -39,31 +39,17 @@
     <div class="topbar">
         <div class="topbar-left">
             <div class="text-center">
-                <a href="../index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Ub<i class="md md-album"></i>ld</span></a>
+                <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span><i class="md md-album"></i>Firm</span></a>
             </div>
         </div>
 
         <div class="navbar navbar-default" role="navigation">
             <div class="container">
-                <div class="">
-                    <ul class="nav navbar-nav navbar-right pull-right">
-                        <li class="dropdown top-menu-item-xs">
-                            <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true"><img src="../assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0)"><i class="ti-user m-r-10 text-custom"></i> Profile</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-settings m-r-10 text-custom"></i> Settings</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-lock m-r-10 text-custom"></i> Lock screen</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+
 
             </div>
         </div>
     </div>
-
 
     <div class="left side-menu">
         <div class="sidebar-inner slimscrollleft">
@@ -139,44 +125,59 @@
                                 <div class="col-lg-12">
                                     <h3>
                                         <b>
-                                            Запит #10 Одержати для кожного типу деталей середню кількість продаж протягом вказаного періоду.
+                                            Запит #10 Одержати для вказаного типу деталей кількість продаж протягом вказаного періоду.
                                         </b>
                                     </h3>
                                     <hr>
-                                    <!--<h3>Фільтр:</h3>-->
+                                    <h3>Фільтр:</h3>
 
-                                    <!--<div class="col-sm-12 col-md-12 col-lg-12">-->
-                                        <!--<label>Виду:</label>-->
-                                        <!--<select class="form-control" id="Type"></select>-->
-                                        <!--<br>-->
-                                    <!--</div>-->
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>Виду:</label>
+                                        <select class="form-control" id="Type"></select>
+                                        <br>
+                                    </div>
 
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <label>Дата:</label>
+                                        <input class="form-control" type="date" name="StartTime" id="StartTime">
+                                    </div>
 
-                                    <!--<div class="col-sm-12 col-md-12 col-lg-12">-->
-                                        <!--<br>-->
-                                        <!--<button type="button" class="btn btn-success" ng-click="ctrl.update_request()">Пошук</button>-->
-                                    <!--</div>-->
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <label>Дата:</label>
+                                        <input class="form-control" type="date" name="FinishTime" id="FinishTime">
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <br>
+                                        <button type="button" class="btn btn-success" ng-click="ctrl.update_request()">Пошук</button>
+                                    </div>
 
                                     <br>
                                     <div class="col-sm-12 col-md-12 col-lg-12">
                                         <hr>
-                                        <h3>Результат пошуку:</h3>
+                                        <div class="col-sm-3 col-md-3 col-lg-3">
+                                            <h3>Результат пошуку:</h3>
+                                        </div>
+                                        <div class="col-sm-1 col-md-1 col-lg-1">
+                                            <h3 id="Rezultat"></h3>
+                                        </div>
+                                        <!--<h3>Результат пошуку:</h3>-->
 
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Постачальник</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr ng-repeat="provider in providers">
-                                                <td>{{provider.id}}</td>
-                                                <td>{{provider.name}}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        <div id="Rezultat"></div>
+                                        <!--<table class="table">-->
+                                            <!--<thead>-->
+                                            <!--<tr>-->
+                                                <!--<th>ID</th>-->
+                                                <!--<th>Постачальник</th>-->
+                                            <!--</tr>-->
+                                            <!--</thead>-->
+                                            <!--<tbody>-->
+                                            <!--<tr ng-repeat="provider in providers">-->
+                                                <!--<td>{{provider.id}}</td>-->
+                                                <!--<td>{{provider.name}}</td>-->
+                                            <!--</tr>-->
+                                            <!--</tbody>-->
+                                        <!--</table>-->
+                                        <!--<div id="Rezultat"></div>-->
                                     </div>
 
                                 </div>

@@ -25,4 +25,15 @@ public interface ProviderRepository extends JpaRepository<Provider, Integer> {
     @Query(" select def.product.provider from Defect def where def.product.id = :product_id group by def.id")
     List<Provider> getProvidersByDefect(@Param("product_id") int product_id);
 
+
+//   Не робить запрос 11
+//    (( count(prod) /
+    @Query(" select  count (allpr)  from Product allpr, Product prod where prod.provider.id = :provider")
+//    @Query("select  count (prod)/(select count (allprod) from Product allprod) from Product prod where prod.provider.id = :provider")
+    float getCountProviderByProcent(@Param("provider") int provider);
+
+
+    @Query(" select sum(pr.price)  from Product pr where pr.provider.id = :provider")
+    float getCountProviderByPrice(@Param("provider") int provider);
+
 }

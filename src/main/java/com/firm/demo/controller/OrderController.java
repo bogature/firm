@@ -8,6 +8,7 @@ import com.firm.demo.service.order.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -42,6 +43,11 @@ public class OrderController {
     @PostMapping("/order/insert")
     public Order insertStreet(@RequestBody Order order) {
         return orderService.insertOrder(order);
+    }
+
+    @RequestMapping("/order/getCountOrderByTypeAndDate")
+    public int getCountOrderByTypeAndDate(@RequestParam("status_id") int status_id, @RequestParam("start_time") Date start_time, @RequestParam("finish_time") Date finish_time){
+        return orderService.getCountOrderByTypeAndDate(status_id, start_time, finish_time);
     }
 
 }

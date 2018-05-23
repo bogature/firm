@@ -88,5 +88,15 @@ public class ProductController {
         return productService.getProductByFamous();
     }
 
+    @RequestMapping("/product/getProductByCheap")
+    public List<Product> getProductByCheap(){
+        return productService.getProductByCheap();
+    }
+
+    @RequestMapping("/product/getProductByCountryAndCenter")
+    public List<Product> getProductByCountryAndCenter(@RequestParam("country_id") int country_id, @RequestParam("center_id") int center_id){
+        return productService.getProductByCountryAndCenter(country_id,center_id);
+    }
+
 
 }

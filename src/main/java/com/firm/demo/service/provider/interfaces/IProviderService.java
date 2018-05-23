@@ -27,4 +27,8 @@ public interface IProviderService {
 
     List<Provider> getProvidersByDefect(int id);
 
+    float getCountProviderByProcent(int provider_id);
+
+    float getCountProviderByPrice(int provider_id);
+
 }

@@ -34,4 +34,7 @@ public interface IProductService {
 
     List<Product> getProductByFamous();
 
+    List<Product> getProductByCheap();
+
+    List<Product> getProductByCountryAndCenter(int country_id, int center_id);
 }
