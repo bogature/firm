@@ -21,7 +21,7 @@ app.controller("inq_10", function ($http, $scope){
         status_id = document.getElementById("Type").options[indexOfStatus].value;
 
         var start_time = document.getElementById("StartTime").value;
-        var finish_time = document.getElementById("StartTime").value;
+        var finish_time = document.getElementById("FinishTime").value;
 
         $scope.providers = [];
         $http.get('/api/order/getCountOrderByTypeAndDate?status_id=' + status_id + "&start_time=" + start_time + "&finish_time=" + finish_time).then(function (response){

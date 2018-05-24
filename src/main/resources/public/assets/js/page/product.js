@@ -9,9 +9,9 @@ app1.controller("product", function ($scope, $http) {
     $http.get('/api/product').then(function (response) {
         $scope.products = response.data;
 
-        accessTime=performance.now()-accessTime;
-        accessTime = Math.round(accessTime*100)/100;
-        window.alert('Час доступу до бази даних: '+accessTime+'мс');
+        // accessTime=performance.now()-accessTime;
+        // accessTime = Math.round(accessTime*100)/100;
+        // window.alert('Час доступу до бази даних: '+accessTime+'мс');
     });
 
     this.delProduct = function del(id) {
@@ -22,9 +22,9 @@ app1.controller("product", function ($scope, $http) {
             window.location.reload();
         });
 
-        accessTime=performance.now()-accessTime;
-        accessTime = Math.round(accessTime*100)/100;
-        window.alert('Час доступу до бази даних: '+accessTime+'мс');
+        // accessTime=performance.now()-accessTime;
+        // accessTime = Math.round(accessTime*100)/100;
+        // window.alert('Час доступу до бази даних: '+accessTime+'мс');
     };
 
     this.startInsertProduct = function startUpdate() {
@@ -116,51 +116,63 @@ app1.controller("product", function ($scope, $http) {
 
         var accessTime = performance.now();
 
-        $http.get('/api/provider/get?id=' + providerId).then(function (response) {
-            var selectedProvider = response.data;
+        var regex =/^[А-ЯІ]([а-яА-ЯіІ0-9]|[№ ])*$/;
+        if(regex.test(name)) {
+            var regex2 =/^[0-9]*[.][0-9]+$/;
+            if(regex2.test(price)) {
 
-            $http.get('/api/country/get?id='+countryId).then(function (response) {
-                var selectedCountry = response.data;
 
-                $http.get('/api/center/get?id='+centerId).then(function (response) {
-                    var selectedCenter = response.data;
+                $http.get('/api/provider/get?id=' + providerId).then(function (response) {
+                    var selectedProvider = response.data;
 
-                    $http.get('/api/type/get?id='+typeId).then(function (response) {
-                        var selectedType = response.data;
+                    $http.get('/api/country/get?id=' + countryId).then(function (response) {
+                        var selectedCountry = response.data;
 
-                        $http.get('/api/status/get?id='+statusId).then(function (response) {
-                            var selectedStatus = response.data;
+                        $http.get('/api/center/get?id=' + centerId).then(function (response) {
+                            var selectedCenter = response.data;
 
-                            var req = {
-                                method: 'POST',
-                                url: '/api/product/insert',
-                                data: {
+                            $http.get('/api/type/get?id=' + typeId).then(function (response) {
+                                var selectedType = response.data;
 
-                                    name: name,
-                                    price: price,
-                                    time:time,
+                                $http.get('/api/status/get?id=' + statusId).then(function (response) {
+                                    var selectedStatus = response.data;
 
-                                    provider: selectedProvider,
-                                    country: selectedCountry,
-                                    center: selectedCenter,
-                                    type: selectedType,
-                                    status: selectedStatus
+                                    var req = {
+                                        method: 'POST',
+                                        url: '/api/product/insert',
+                                        data: {
 
-                                }
-                            };
+                                            name: name,
+                                            price: price,
+                                            time: time,
 
-                            console.log(req);
-                            $http(req).then(function (resp) {
-                                window.location.reload();
-                            })
+                                            provider: selectedProvider,
+                                            country: selectedCountry,
+                                            center: selectedCenter,
+                                            type: selectedType,
+                                            status: selectedStatus
+
+                                        }
+                                    };
+
+                                    console.log(req);
+                                    $http(req).then(function (resp) {
+                                        window.location.reload();
+                                    })
+                                });
+                            });
                         });
                     });
                 });
-            });
-        });
-        accessTime=performance.now()-accessTime;
-        accessTime = Math.round(accessTime*100)/100;
-        window.alert('Час доступу до бази даних: '+accessTime+'мс');
+            }
+            else document.getElementById("Regex").innerText = "Поле 'Ціна' заповнене не коректно. (Приклад 22.50)";
+
+        }
+        else document.getElementById("Regex").innerText = "Поле 'Назва' заповнене не коректно. (Перша буква велика, Мова Українська, Допустимий символи '- / №' )";
+        //
+        // accessTime=performance.now()-accessTime;
+        // accessTime = Math.round(accessTime*100)/100;
+        // window.alert('Час доступу до бази даних: '+accessTime+'мс');
     };
 
     this.startUpdateProduct = function startUpdate(product) {
@@ -274,52 +286,64 @@ app1.controller("product", function ($scope, $http) {
 
         var accessTime = performance.now();
 
-        $http.get('/api/provider/get?id=' + providerId).then(function (response) {
-            var selectedProvider = response.data;
+        var regex =/^[А-ЯІ]([а-яА-ЯіІ0-9]|[/-№ ])*$/;
+        if(regex.test(name)) {
+            var regex2 =/^[0-9]*[.][0-9]+$/;
+            if(regex2.test(price)) {
 
-            $http.get('/api/country/get?id='+countryId).then(function (response) {
-                var selectedCountry = response.data;
 
-                $http.get('/api/center/get?id='+centerId).then(function (response) {
-                    var selectedCenter = response.data;
+                $http.get('/api/provider/get?id=' + providerId).then(function (response) {
+                    var selectedProvider = response.data;
 
-                    $http.get('/api/type/get?id='+typeId).then(function (response) {
-                        var selectedType = response.data;
+                    $http.get('/api/country/get?id=' + countryId).then(function (response) {
+                        var selectedCountry = response.data;
 
-                        $http.get('/api/status/get?id='+statusId).then(function (response) {
-                            var selectedStatus = response.data;
+                        $http.get('/api/center/get?id=' + centerId).then(function (response) {
+                            var selectedCenter = response.data;
 
-                            var req = {
-                                method: 'POST',
-                                url: '/api/product/update?id='+id,
-                                data: {
+                            $http.get('/api/type/get?id=' + typeId).then(function (response) {
+                                var selectedType = response.data;
 
-                                    name: name,
-                                    price: price,
-                                    time:time,
+                                $http.get('/api/status/get?id=' + statusId).then(function (response) {
+                                    var selectedStatus = response.data;
 
-                                    provider: selectedProvider,
-                                    country: selectedCountry,
-                                    center: selectedCenter,
-                                    type: selectedType,
-                                    status: selectedStatus
+                                    var req = {
+                                        method: 'POST',
+                                        url: '/api/product/update?id=' + id,
+                                        data: {
 
-                                }
-                            };
+                                            name: name,
+                                            price: price,
+                                            time: time,
 
-                            console.log(req);
-                            $http(req).then(function (resp) {
-                                window.location.reload();
-                            })
+                                            provider: selectedProvider,
+                                            country: selectedCountry,
+                                            center: selectedCenter,
+                                            type: selectedType,
+                                            status: selectedStatus
+
+                                        }
+                                    };
+
+                                    console.log(req);
+                                    $http(req).then(function (resp) {
+                                        window.location.reload();
+                                    })
+                                });
+                            });
                         });
                     });
                 });
-            });
-        });
+            }
+            else document.getElementById("RegexUPD").innerText = "Поле 'Ціна' заповнене не коректно. (Приклад 22.50)";
 
-        accessTime=performance.now()-accessTime;
-        accessTime = Math.round(accessTime*100)/100;
-        window.alert('Час доступу до бази даних: '+accessTime+'мс');
+        }
+        else document.getElementById("RegexUPD").innerText = "Поле 'Назва' заповнене не коректно. (Перша буква велика, Мова Українська, Допустимий символи '- / №' )";
+
+        //
+        // accessTime=performance.now()-accessTime;
+        // accessTime = Math.round(accessTime*100)/100;
+        // window.alert('Час доступу до бази даних: '+accessTime+'мс');
     };
 
 });

@@ -23,7 +23,9 @@ public interface IProviderService {
 
     List<Provider> getProvidersByCategoryAndType(int id, int type_id);
 
-    List<Provider> getProvidersByTimerAndCount(int id, Date timerStart, int amount, Date timerFinish);
+//    List<Provider> getProvidersByTimerAndCount(int id, Date timerStart, int amount, Date timerFinish);
+
+    List<Provider> getProvidersByTimerAndCount(int id, Date timer, Date timerFinish, int amount);
 
     List<Provider> getProvidersByDefect(int id);
 

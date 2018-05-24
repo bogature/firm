@@ -145,11 +145,11 @@
                                                     <label>Назва:</label>
                                                     <select class="form-control" id="Product"></select>
 
-                                                    <label>Постачальник:</label>
+                                                    <label>Покупець:</label>
                                                     <select class="form-control" id="Provider"></select>
 
                                                     <label>Кількість:</label>
-                                                    <input class="form-control" type="text" id="Amount">
+                                                    <input class="form-control" type="number" max="0" id="Amount">
 
                                                     <label>Дата замовлення:</label>
                                                     <input class="form-control" type="date" name="time" id="time">
@@ -157,6 +157,8 @@
                                                     <br>
                                                     <button type="button" class="btn btn-success" ng-click="ctrl.insertOrder()">Добавити</button>
                                                     <br>
+                                                    <h4 style="color: red" id="Regex"></h4>
+
 
 
                                                 </div>
@@ -209,17 +211,19 @@
                                                     <label>Назва:</label>
                                                     <select class="form-control" id="ProductUPD"></select>
 
-                                                    <label>Постачальник:</label>
+                                                    <label>Покупець:</label>
                                                     <select class="form-control" id="ProviderUPD"></select>
 
                                                     <label>Кількість:</label>
-                                                    <input class="form-control" type="text" id="AmountUPD">
+                                                    <input class="form-control" type="number" max="0" id="AmountUPD">
 
                                                     <label>Дата замовлення:</label>
-                                                    <h4>Оновлення країни:</h4>
+
                                                     <input class="form-control" type="date" name="time" id="timeUPD">
                                                     <br>
                                                     <button type="button" class="btn btn-primary" ng-click="ctrl.updateOrder()">Оновити</button>
+                                                    <br>
+                                                    <h4 style="color: red" id="RegexUPD"></h4>
 
                                                     <hr>
                                                 </div>

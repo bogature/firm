@@ -49,32 +49,38 @@ app9.controller("orders", function ($scope, $http) {
         var indexProvider = document.getElementById("Provider").selectedIndex;
         var providerId = document.getElementById("Provider").options[indexProvider].value;
 
-        $http.get('/api/product/get?id=' + productId).then(function (response) {
-            var selectedProduct = response.data;
+        var regex =/^[0-9]+$/;
+        if(regex.test(amount)) {
+
+            $http.get('/api/product/get?id=' + productId).then(function (response) {
+                var selectedProduct = response.data;
 
 
-            $http.get('/api/customer/get?id='+providerId).then(function (response) {
-                var selectedProvider = response.data;
+                $http.get('/api/customer/get?id=' + providerId).then(function (response) {
+                    var selectedProvider = response.data;
 
-                var req = {
-                    method: 'POST',
-                    url: '/api/order/insert',
-                    data: {
+                    var req = {
+                        method: 'POST',
+                        url: '/api/order/insert',
+                        data: {
 
-                        time: time,
-                        amount: amount,
+                            time: time,
+                            amount: amount,
 
-                        product: selectedProduct,
-                        customer :selectedProvider
+                            product: selectedProduct,
+                            customer: selectedProvider
 
-                    }
-                };
-                console.log(req);
-                $http(req).then(function (resp) {
-                    window.location.reload();
-                })
+                        }
+                    };
+                    console.log(req);
+                    $http(req).then(function (resp) {
+                        window.location.reload();
+                    })
+                });
             });
-        });
+        }
+        else document.getElementById("Regex").innerText = "Поле 'Кількість' заповнене не коректно. (Приклад 2)";
+
     };
 
 
@@ -125,32 +131,38 @@ app9.controller("orders", function ($scope, $http) {
         var indexProvider = document.getElementById("ProviderUPD").selectedIndex;
         var providerId = document.getElementById("ProviderUPD").options[indexProvider].value;
 
-        $http.get('/api/product/get?id='+productId).then(function (response) {
-            var selectedProduct = response.data;
+        var regex =/^[0-9]+$/;
+        if(regex.test(amount)) {
+
+            $http.get('/api/product/get?id=' + productId).then(function (response) {
+                var selectedProduct = response.data;
 
 
-            $http.get('/api/customer/get?id='+providerId).then(function (response) {
-                var selectedProvider = response.data;
+                $http.get('/api/customer/get?id=' + providerId).then(function (response) {
+                    var selectedProvider = response.data;
 
-                var req = {
-                    method: 'POST',
-                    url: '/api/order/update?id='+id,
-                    data: {
+                    var req = {
+                        method: 'POST',
+                        url: '/api/order/update?id=' + id,
+                        data: {
 
-                        time: time,
-                        amount: amount,
+                            time: time,
+                            amount: amount,
 
-                        product: selectedProduct,
-                        customer :selectedProvider
+                            product: selectedProduct,
+                            customer: selectedProvider
 
-                    }
-                };
-                console.log(req);
-                $http(req).then(function (resp) {
-                    window.location.reload();
-                })
+                        }
+                    };
+                    console.log(req);
+                    $http(req).then(function (resp) {
+                        window.location.reload();
+                    })
+                });
             });
-        });
+        }
+        else document.getElementById("RegexUPD").innerText = "Поле 'Кількість' заповнене не коректно. (Приклад 2)";
+
     };
 
 

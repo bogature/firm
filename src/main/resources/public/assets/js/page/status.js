@@ -11,20 +11,26 @@ app3.controller("status", function ($scope, $http) {
 
     this.insertStatus = function add() {
         var name = document.getElementById("StatusName").value;
+        var regex =/^[А-ЯІ]([а-яА-ЯіІ]|[- ])*$/;
 
-        var req = {
-            method: 'POST',
-            url: '/api/status/insert',
-            data: {
-                name: name
-            }
-        };
+        if(regex.test(name)) {
 
-        console.log(req);
-        $http(req).then(function (resp) {
-            console.log(resp);
-            window.location.reload();
-        })
+            var req = {
+                method: 'POST',
+                url: '/api/status/insert',
+                data: {
+                    name: name
+                }
+            };
+
+            console.log(req);
+            $http(req).then(function (resp) {
+                console.log(resp);
+                window.location.reload();
+            })
+        }
+        else document.getElementById("Regex").innerText = "Поле 'Назва' заповнене не коректно. (Перша буква велика, Мова Українська, Допустимий символи '-' )";
+
     };
 
 
@@ -43,18 +49,24 @@ app3.controller("status", function ($scope, $http) {
     this.updateStatus = function update() {
         var id = document.getElementById("StatusIdUPD").innerText;
         var name = document.getElementById("StatusNameUPD").value;
-        var req = {
-            method: 'POST',
-            url: '/api/status/update?id=' + id,
-            data: {
-                name: name
-            }
-        };
-        console.log(req);
-        $http(req).then(function (resp) {
-            console.log(resp);
-            window.location.reload();
-        })
+        var regex =/^[А-ЯІ]([а-яА-ЯіІ]|[- ])*$/;
+
+        if(regex.test(name)) {
+            var req = {
+                method: 'POST',
+                url: '/api/status/update?id=' + id,
+                data: {
+                    name: name
+                }
+            };
+            console.log(req);
+            $http(req).then(function (resp) {
+                console.log(resp);
+                window.location.reload();
+            })
+        }
+        else document.getElementById("RegexUPD").innerText = "Поле 'Назва' заповнене не коректно. (Перша буква велика, Мова Українська, Допустимий символи '-' )";
+
     };
 
 

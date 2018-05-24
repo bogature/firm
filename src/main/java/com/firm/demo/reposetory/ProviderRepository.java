@@ -18,15 +18,19 @@ public interface ProviderRepository extends JpaRepository<Provider, Integer> {
     @Query(" select prod.provider from Product prod  where  prod.provider.category.id = :categorys_id and prod.type.id = :type_id group by prod.provider.id  ")
     List<Provider> getProvidersByCategoryAndType(@Param("categorys_id") int categorys_id, @Param("type_id") int type_id);
 
+//    Query 2
+//    @Query(" select ord.product.provider from Order ord where ord.product.id = :products and ord.time >= :timerStart and ord.time <= :timerFinish  and ord.amount <= :amount ")
+//    @Query("select ord.product.provider from Order ord where ord.product.id = :product_id")
+    @Query(" select ord.product.provider from Order ord where ord.product.id = :product_id and ord.time >= :timerStart and ord.time <= :timerFinish  and ord.amount <= :amount ")
+    List<Provider> getProvidersByTimerAndCount(@Param("product_id") int product_id, @Param("timerStart") Date timerStart, @Param("timerFinish") Date timerFinish, @Param("amount") int amount);
 
-    @Query(" select ord.product.provider from Order ord where ord.product.id = :product_id and ord.time >= :timerStart and ord.time <= :timerFinish  and ord.amount > :amount ")
-    List<Provider> getProvidersByTimerAndCount(@Param("product_id") int product_id, @Param("timerStart") Date timerStart, @Param("amount") int amount, @Param("timerFinish") Date timerFinish);
 
-
-    @Query(" select def.product.provider from Defect def where def.product.id = :product_id group by def.id")
+//    Query 16
+    @Query(" select def.product.provider from Defect def where def.product.id = :product_id group by def.product.id")
     List<Provider> getProvidersByDefect(@Param("product_id") int product_id);
 
 
+//    Query 12
     @Query(" select sum(pr.price)  from Product pr where pr.provider.id = :provider")
     float getCountProviderByPrice(@Param("provider") int provider);
 

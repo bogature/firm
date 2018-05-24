@@ -141,12 +141,14 @@
                                                     <hr>
                                                     <h4>Форма добавлення покупця:</h4>
 
-                                                    <label>Назва:</label>
+                                                    <label>ПІБ:</label>
                                                     <input class="form-control" type="text" id="CustomersName">
 
                                                     <br>
                                                     <button type="button" class="btn btn-success" ng-click="ctrl.insertCustomers()">Добавити</button>
                                                     <br>
+                                                    <h4 style="color: red" id="Regex"></h4>
+
 
 
                                                 </div>
@@ -184,10 +186,11 @@
 
                                                     <h4><b>ID </b>  <div id="CustomersIdUPD"></div> </h4>
 
-                                                    <label>Назва:</label>
+                                                    <label>ПІБ:</label>
                                                     <input class="form-control" type="text" id="CustomersNameUPD">
                                                     <br>
                                                     <button type="button" class="btn btn-primary" ng-click="ctrl.updateCustomers()">Оновити</button>
+                                                    <h4 style="color: red" id="RegexUPD"></h4>
 
                                                     <hr>
                                                 </div>

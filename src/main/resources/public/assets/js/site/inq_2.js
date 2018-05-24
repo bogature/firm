@@ -3,16 +3,6 @@ var app = angular.module("myinq_2", []);
 
 app.controller("inq_2", function ($http, $scope){
 
-
-    var product_id = 1;
-    var date = '2017-01-01';
-    var amount = 3;
-
-    $scope.providers = [];
-    $http.get('/api/provider/getProvidersByTimerAndCount?product_id='+ product_id + "&timerStart="+ date + "&timerFinish="+ date + "&amount="+ amount).then(function (response){
-        $scope.providers = response.data;
-    });
-
     $http.get('/api/product').then(function (response){
         var products = response.data;
         var selector = document.getElementById("Product");
@@ -36,6 +26,8 @@ app.controller("inq_2", function ($http, $scope){
         var finish_time = document.getElementById("StartTime").value;
 
         var amount = document.getElementById("Amount").value;
+
+        console.log(amount);
 
         $scope.providers = [];
         $http.get('/api/provider/getProvidersByTimerAndCount?product_id=' + product_id + "&timerStart=" + start_time + "&timerFinish=" + finish_time + "&amount=" + amount).then(function (response){

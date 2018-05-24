@@ -47,8 +47,8 @@ public class ProviderService implements IProviderService {
     }
 
     @Override
-    public List<Provider> getProvidersByTimerAndCount(int id, Date timer, int amount, Date timerFinish) {
-        return providerRepository.getProvidersByTimerAndCount(id, timer, amount, timerFinish);
+    public List<Provider> getProvidersByTimerAndCount(int id, Date timer, Date timerFinish, int amount) {
+        return providerRepository.getProvidersByTimerAndCount(id, timer, timerFinish, amount);
     }
 
     @Override

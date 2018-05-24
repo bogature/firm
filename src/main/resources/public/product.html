@@ -169,6 +169,8 @@
                                                     <br>
                                                     <button type="button" class="btn btn-success" ng-click="ctrl.insertProduct()">Добавити</button>
                                                     <br>
+                                                    <h4 style="color: red" id="Regex"></h4>
+
 
 
                                                 </div>
@@ -230,7 +232,7 @@
                                                     <select class="form-control" id="ProviderUPD"></select>
 
                                                     <label>Ціна:</label>
-                                                    <input class="form-control" type="text" id="PriceUPD">
+                                                    <input class="form-control" type="number" min="0" id="PriceUPD">
 
                                                     <label>Тип:</label>
                                                     <select class="form-control" id="TypeUPD"></select>
@@ -249,6 +251,7 @@
                                                     <br>
 
                                                     <button type="button" class="btn btn-primary" ng-click="ctrl.updateProduct()">Оновити</button>
+                                                    <h4 style="color: red" id="RegexUPD"></h4>
 
                                                     <hr>
                                                 </div>

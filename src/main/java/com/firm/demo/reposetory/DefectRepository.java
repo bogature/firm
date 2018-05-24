@@ -12,11 +12,15 @@ import java.util.List;
 
 public interface DefectRepository extends JpaRepository<Defect, Integer> {
 
+
+//    Query 15
     @Query("select count (def) from Defect def where def.time >= :startTime and def.time <= :finishTime ")
     int getCountDefectByDay(@Param("startTime") Date startTime, @Param("finishTime") Date finishTime);
 
 
+//    Query 14
     @Query(" select def from Defect def where def.time >= :startTime and def.time <= :finishTime")
     List<Defect> getDefectByDate(@Param("startTime") Date startTime, @Param("finishTime") Date finishTime);
+
 
 }
