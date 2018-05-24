@@ -23,10 +23,9 @@ app4.controller("providers", function ($scope, $http) {
         });
     };
 
-
-
     this.insertProvider = function add() {
         var name = document.getElementById("ProviderName").value;
+        var phone = document.getElementById("Phone").value;
 
         var indexCategory = document.getElementById("ProviderCategory").selectedIndex;
         var categorys_id = document.getElementById("ProviderCategory").options[indexCategory].value;
@@ -36,7 +35,8 @@ app4.controller("providers", function ($scope, $http) {
             url: '/api/provider/insert',
             data: {
                 name: name,
-                categorys_id: categorys_id
+                categorys_id: categorys_id,
+                phone: phone
             }
         };
 
@@ -70,6 +70,7 @@ app4.controller("providers", function ($scope, $http) {
     this.updateProvider = function add() {
         var id = document.getElementById("ProviderIdUPD").innerText;
         var name = document.getElementById("ProviderNameUPD").value;
+        var phone = document.getElementById("PhoneUPD").value;
 
         var indexCategory = document.getElementById("ProviderCategoryUPD").selectedIndex;
         var categorys_id = document.getElementById("ProviderCategoryUPD").options[indexCategory].value;
@@ -79,7 +80,8 @@ app4.controller("providers", function ($scope, $http) {
             url: '/api/provider/update?id='+id,
             data: {
                 name: name,
-                categorys_id: categorys_id
+                categorys_id: categorys_id,
+                phone: phone
             }
         };
 
@@ -88,9 +90,6 @@ app4.controller("providers", function ($scope, $http) {
         })
 
     };
-
-
-
 
     this.delProvider = function del(id) {
         $http.get('/api/provider/del?id=' + id).then(function () {

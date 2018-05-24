@@ -24,6 +24,10 @@ public class Provider {
     @Column(name = "categorys_id")
     private long categorys_id;
 
+    @Column(name = "phone")
+    private String phone;
+
+
     public Provider() {
     }
 
@@ -31,6 +35,13 @@ public class Provider {
         this.name = name;
         this.category = category;
         this.categorys_id = categorys_id;
+    }
+
+    public Provider(String name, Category category, long categorys_id, String phone) {
+        this.name = name;
+        this.category = category;
+        this.categorys_id = categorys_id;
+        this.phone = phone;
     }
 
     public int getId() {
@@ -63,5 +74,13 @@ public class Provider {
 
     public void setCategorys_id(long categorys_id) {
         this.categorys_id = categorys_id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

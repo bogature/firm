@@ -151,6 +151,11 @@
                                                     <select class="form-control" id="ProviderCategory"></select>
 
                                                     <br>
+
+                                                    <label>Телефон:</label>
+                                                    <input class="form-control" type="text" id="Phone">
+
+                                                    <br>
                                                     <button type="button" class="btn btn-success" ng-click="ctrl.insertProvider()">Добавити</button>
                                                     <br>
 
@@ -167,6 +172,7 @@
                                             <th>ID</th>
                                             <th>Назва</th>
                                             <th>Категорія</th>
+                                            <th>Телефон</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -174,6 +180,7 @@
                                             <td>{{provider.id}}</td>
                                             <td>{{provider.name}}</td>
                                             <td>{{provider.category.name}}</td>
+                                            <td>{{provider.phone}}</td>
                                             <td class="text-right">
                                                 <button data-toggle="collapse" data-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree" type="button" class="btn btn-primary" ng-click="ctrl.startUpdateStreet(provider.id, provider.name)"><i class="fa fa-refresh"></i></button>
                                                 <button type="button" class="btn btn-danger" ng-click="ctrl.delProvider(provider.id)"><i class="fa fa-trash"></i></button>
@@ -196,6 +203,9 @@
                                                     <br>
                                                     <label>Категорія:</label>
                                                     <select class="form-control" id="ProviderCategoryUPD"></select>
+                                                    <br>
+                                                    <label>Телефон:</label>
+                                                    <input class="form-control" type="text" id="PhoneUPD">
                                                     <br>
                                                     <button type="button" class="btn btn-primary" ng-click="ctrl.updateProvider()">Оновити</button>
 
