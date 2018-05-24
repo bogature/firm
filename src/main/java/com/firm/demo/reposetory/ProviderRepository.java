@@ -14,7 +14,8 @@ import java.util.List;
 
 public interface ProviderRepository extends JpaRepository<Provider, Integer> {
 
-    @Query(" select prod.provider from Product prod where prod.provider.category.id = :categorys_id and prod.type.id = :type_id order by prod.id ")
+//    Query 1
+    @Query(" select prod.provider from Product prod  where  prod.provider.category.id = :categorys_id and prod.type.id = :type_id group by prod.provider.id  ")
     List<Provider> getProvidersByCategoryAndType(@Param("categorys_id") int categorys_id, @Param("type_id") int type_id);
 
 
@@ -26,17 +27,13 @@ public interface ProviderRepository extends JpaRepository<Provider, Integer> {
     List<Provider> getProvidersByDefect(@Param("product_id") int product_id);
 
 
-//   Не робить запрос 11
-//    (count (prod)/select count(allprod.id) from Product allprod)*100
-    @Query(" select count (pr) from Product pr where pr.provider.id = :provider")
-    float getCountProviderByProcent(@Param("provider") int provider);
-
-
-
     @Query(" select sum(pr.price)  from Product pr where pr.provider.id = :provider")
     float getCountProviderByPrice(@Param("provider") int provider);
 
 
+    //    Query 11
+    @Query(" select count (pr) from Product pr where pr.provider.id = :provider")
+    float getCountProviderByProcent(@Param("provider") int provider);
 
     @Query(" select count (pr) from Product pr")
     int getCountAllProduct();
