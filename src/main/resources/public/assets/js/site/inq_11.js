@@ -24,9 +24,11 @@ app.controller("inq_11", function ($http, $scope){
 
         $scope.providers = [];
         $http.get('/api/provider/getCountProviderByProcent?provider_id=' + provider_id ).then(function (response){
+            $http.get('/api/provider/getCountAllProduct').then(function (response2){
 
-            document.getElementById("Rezultat").innerText = response.data;
+                document.getElementById("Rezultat").innerText = (((response.data/response2.data)*100).toFixed(2));
 
+            });
         });
 
     };

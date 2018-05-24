@@ -71,5 +71,10 @@ public class ProviderController {
         return providerService.getCountProviderByPrice(provider_id);
     }
 
+    @RequestMapping("/provider/getCountAllProduct")
+    public int getCountAllProduct(){
+        return providerService.getCountAllProduct();
+    }
+
 
 }

@@ -65,4 +65,9 @@ public class ProviderService implements IProviderService {
     public float getCountProviderByPrice(int provider_id) {
         return providerRepository.getCountProviderByPrice(provider_id);
     }
+
+    @Override
+    public int getCountAllProduct() {
+        return providerRepository.getCountAllProduct();
+    }
 }

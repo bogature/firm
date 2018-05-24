@@ -31,4 +31,6 @@ public interface IProviderService {
 
     float getCountProviderByPrice(int provider_id);
 
+    int getCountAllProduct();
+
 }
