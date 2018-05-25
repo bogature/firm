@@ -19,10 +19,8 @@ public interface ProviderRepository extends JpaRepository<Provider, Integer> {
     List<Provider> getProvidersByCategoryAndType(@Param("categorys_id") int categorys_id, @Param("type_id") int type_id);
 
 //    Query 2
-//    @Query(" select ord.product.provider from Order ord where ord.product.id = :products and ord.time >= :timerStart and ord.time <= :timerFinish  and ord.amount <= :amount ")
-//    @Query("select ord.product.provider from Order ord where ord.product.id = :product_id")
-    @Query(" select ord.product.provider from Order ord where ord.product.id = :product_id and ord.time >= :timerStart and ord.time <= :timerFinish  and ord.amount <= :amount ")
-    List<Provider> getProvidersByTimerAndCount(@Param("product_id") int product_id, @Param("timerStart") Date timerStart, @Param("timerFinish") Date timerFinish, @Param("amount") int amount);
+    @Query(" select ord.product.provider from Order ord where ord.time >= :timerStart and ord.time <= :timerFinish and ord.amount >= :amount group by ord.product.provider.id ")
+    List<Provider> getProvidersByTimerAndCount(@Param("timerStart") Date timerStart, @Param("timerFinish") Date timerFinish, @Param("amount") int amount);
 
 
 //    Query 16

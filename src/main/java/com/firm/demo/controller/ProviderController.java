@@ -52,8 +52,8 @@ public class ProviderController {
     }
 
     @RequestMapping("/provider/getProvidersByTimerAndCount")
-    public List<Provider> getProvidersByTimerAndCount(@RequestParam("product_id") int product_id, @RequestParam("timerStart") Date timerStart, @RequestParam("timerFinish") Date timerFinish, @RequestParam("amount") int amount){
-        return providerService.getProvidersByTimerAndCount(product_id, timerStart, timerFinish, amount);
+    public List<Provider> getProvidersByTimerAndCount(@RequestParam("timerStart") Date timerStart, @RequestParam("timerFinish") Date timerFinish, @RequestParam("amount") int amount){
+        return providerService.getProvidersByTimerAndCount(timerStart, timerFinish, amount);
     }
 
     @RequestMapping("/provider/getProvidersByDefect")

@@ -19,18 +19,18 @@ app.controller("inq_2", function ($http, $scope){
 
         console.log("Start...");
 
-        var indexOfProduct = document.getElementById("Product").selectedIndex;
-        product_id = document.getElementById("Product").options[indexOfProduct].value;
+        // var indexOfProduct = document.getElementById("Product").selectedIndex;
+        // product_id = document.getElementById("Product").options[indexOfProduct].value;
 
         var start_time = document.getElementById("StartTime").value;
-        var finish_time = document.getElementById("StartTime").value;
+        var finish_time = document.getElementById("FinishTime").value;
 
         var amount = document.getElementById("Amount").value;
 
         console.log(amount);
 
         $scope.providers = [];
-        $http.get('/api/provider/getProvidersByTimerAndCount?product_id=' + product_id + "&timerStart=" + start_time + "&timerFinish=" + finish_time + "&amount=" + amount).then(function (response){
+        $http.get('/api/provider/getProvidersByTimerAndCount?timerStart=' + start_time + "&timerFinish=" + finish_time + "&amount=" + amount).then(function (response){
 
 
             document.getElementById("Rezultat").innerText = " ";
